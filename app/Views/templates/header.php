@@ -11,12 +11,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<?= base_url('theme/plugins/fontawesome-free/css/all.min.css') ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('theme/dist/css/adminlte.min.css') ?>">
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/7b25d44e85.js" crossorigin="anonymous"></script>
+
 </head>
-<body>
+<body class="layout-fixed">
 
 <?php
 include_once 'navbar.php';

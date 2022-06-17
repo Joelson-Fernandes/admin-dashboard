@@ -12,6 +12,7 @@ class Usuario extends Model {
         'username',
         'nome',
         'senha',
+        'privilege'
     ];
 
     protected $useTimestamps = true;

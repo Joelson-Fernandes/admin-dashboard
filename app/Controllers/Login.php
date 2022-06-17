@@ -28,23 +28,23 @@ class Login extends BaseController {
        } else {
 
         $session->setFlashdata('alert', 'error_login');
-        return redirect()->to('/login');
+        return redirect()->to('');
 
        }
 
     }
-
+/*
     public function logout() {
         $session = session();
         $session->destroy();
         return redirect()->to('/login');
-    }
-
+    }*/
+/*
     public function trocarSenha() {
         echo view('templates/header');
         echo view('login/trocar_senha');
         echo view('templates/footer');
-    }
+    }*/
 
     public function store() {
         $dados = $this->request->getVar();

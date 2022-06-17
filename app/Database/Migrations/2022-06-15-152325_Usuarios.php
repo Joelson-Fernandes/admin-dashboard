@@ -31,6 +31,11 @@ class Usuarios extends Migration
                 'constraint'     => 128
             ],
 
+            'privilege'         => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 10
+            ],
+
             'created_at' => [
                 'type' => 'DATETIME'
             ],
