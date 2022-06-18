@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
@@ -13,11 +9,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('theme/dist/css/adminlte.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('theme/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('theme/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('theme/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('theme/dist/css/adminlte.min.css?v=3.2.0') ?>">
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/7b25d44e85.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="layout-fixed">
+<body class="layout-fixed" style="height: auto;" cz-shortcut-listen="true">
 
 <?php
 include_once 'navbar.php';
