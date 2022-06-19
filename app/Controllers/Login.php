@@ -46,25 +46,5 @@ class Login extends BaseController {
         echo view('templates/footer');
     }*/
 
-    public function store() {
-        $dados = $this->request->getVar();
-
-        $usuario = $this->usuario->where('id_usuario', $dados['id_usuario'])->first();
-        $session = session();
-
-        if(md5($dados['senha_atual']) == $usuario['senha']) {
-            if($dados['nova_senha'] ==  $dados['confirmar_nova_senha']){
-                $this->usuario->where('id_usuario', $dados['id_usuario'])->set('senha', md5($dados['nova_senha']))->update();
-
-                $session->setFlashdata('alert', 'success_trocar_senha');
-
-                return redirect()->to('login/trocar_senha');
-            }
-        }
-
-        $session->setFlashdata('alert', 'error_trocar_senha');
-
-        return redirect()->to('login/trocar_senha');
-    }
 
 }
