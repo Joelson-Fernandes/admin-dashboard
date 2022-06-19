@@ -40,7 +40,10 @@ $routes->get('/login', 'Login');
 $routes->post('/validar-usuario', 'Login::autenticar');
 
 $routes->get('/inicio', 'Inicio');
+
 $routes->get('/usuarios', 'Usuario');
+$routes->get('/usuarios/novo', 'Usuario::cadastrar');
+$routes->post('/usuarios/store', 'Usuario::store');
 
 /*
  * --------------------------------------------------------------------
