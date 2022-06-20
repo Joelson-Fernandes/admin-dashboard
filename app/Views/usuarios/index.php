@@ -28,14 +28,22 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <?php if($alert == 'success_create'): ?>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="alert alert-success alert-dismissible">
-                                    <?= "Usuário cadastrado com sucesso!" ?>
-                                </div>
-                            </div>
+                    <?php if(isset($alert)): ?>
+                    <?php if($alert == 'success_create') { 
+                        $mensagem = 'Usuário cadastrado com sucesso!';
+                    } else if($alert == 'success_delete') {
+                        $mensagem = 'Usuário deletado com sucesso!';
+                    } else if($alert == 'success_update') {
+                        $mensagem = 'Usuário atualizado com sucesso!';
+                    }
+                    ?>
+                    <div class="row">
+                        <div class="col-lg-12">
+                        <div class="alert alert-success alert-dismissible">
+                            <?= $mensagem ?>
                         </div>
+                        </div>
+                    </div>
                     <?php endif; ?>
                     
                     <div class="card">
@@ -66,7 +74,7 @@
                                                         <td><?= $usuario['username'] ?></td>
                                                         <td><?= $usuario['privilege'] ?></td>                                                  
                                                         <td style="width: 100px">
-                                                            <a href="/funcionarios/editar/<?= $usuario['id_usuario'] ?>" class="btn btn-warning"><i class="fa fa-cog" aria-hidden="true"></i></a>
+                                                            <a href="/usuarios/editar/<?= $usuario['id_usuario'] ?>" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-confirmacao-delete" onclick="document.getElementById('id_usuario').value = <?= $usuario['id_usuario'] ?>"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                         </td>
                                                     </tr>

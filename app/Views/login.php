@@ -9,14 +9,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin|Dashboard</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
-    <link rel="stylesheet" href="<?= base_url('theme/plugins/fontawesome-free/css/all.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('theme/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('theme/dist/css/adminlte.min.css?v=3.2.0') ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+
+     <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/7b25d44e85.js" crossorigin="anonymous"></script>
 
 <body class="login-page" style="min-height: 466px;">
     
-<div class="login-box">
+<div class="login-box w-25">
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
             <a href="#" class="h1"><b>Admin</b>Dashboard</a>
@@ -28,7 +29,7 @@
                     <input type="text" class="form-control" placeholder="Usuário" name="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                                <i class="fa-solid fa-user"></i>
                             </div>
                         </div>
                 </div>

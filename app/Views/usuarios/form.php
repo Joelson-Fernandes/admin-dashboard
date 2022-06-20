@@ -5,13 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Novo usuário</h1>
+            <h1 class="m-0"><?= isset($usuario) ? "Editar " : "Novo " ?>usuário</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="/inicio">Inicio</a></li>             
               <li class="breadcrumb-item"><a href="/usuarios">Usuários</a></li>
-              <li class="breadcrumb-item active">Novo usuário</li>
+              <li class="breadcrumb-item active"><?= isset($usuario) ? "Editar " : "Novo " ?>usuário</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -26,7 +26,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Dados</h3>
+                            <a href="/usuarios" class="btn btn-primary">Voltar</a>
                         </div>
                         <form action="/usuarios/store" method="post">
                             <div class="card-body">
@@ -34,19 +34,19 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nome</label>
-                                            <input type="text" class="form-control" placeholder="Seu nome" name="nome">
+                                            <input type="text" class="form-control" placeholder="Seu nome" name="nome" value="<?= isset($usuario) ? $usuario['nome'] : '' ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Username</label>
-                                            <input type="text" class="form-control" placeholder="Nome de usuário" name="username">
+                                            <input type="text" class="form-control" placeholder="Nome de usuário" name="username" value="<?= isset($usuario) ? $usuario['username'] : '' ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Senha</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="senha">
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="senha" value="<?= isset($usuario) ? $usuario['senha'] : '' ?>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -58,10 +58,13 @@
                                         </select>
                                         </div>
                                     </div>
+                                    <?php if(isset($usuario)): ?>
+                                    <input type="hidden" value="<?=$usuario['id_usuario']?>" name="id_usuario">
+                                    <?php endif ?>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                                <button type="submit" class="btn btn-primary w-100"><?= isset($usuario) ? 'Salvar' : 'Cadastrar' ?></button>
                             </div>
                         </form>
                     </div><!-- /.card card-primary-->

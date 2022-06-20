@@ -35,6 +35,11 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="/logout" role="button">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </a>
+      </li>
     </ul>
   </nav>
   <!-- /.navbar -->

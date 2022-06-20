@@ -10,6 +10,10 @@ class Login extends BaseController {
         $this->usuario = model('App\Models\Usuario');
     }
 
+    public function index() {
+
+    }
+
     public function autenticar() {
         $dados = $this->request->getVar();
         $session = session();
@@ -33,12 +37,13 @@ class Login extends BaseController {
        }
 
     }
-/*
+
     public function logout() {
         $session = session();
         $session->destroy();
-        return redirect()->to('/login');
-    }*/
+        return redirect()->to('/');
+    }
+
 /*
     public function trocarSenha() {
         echo view('templates/header');
