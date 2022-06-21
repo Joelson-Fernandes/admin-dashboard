@@ -1,24 +1,43 @@
+<?php
+  $session = session();
+  $usuario = $session->get('usuario');
+
+  if ($usuario == null) {
+    echo "
+    <script>
+      alert('Acesse sua conta para continuar!');
+      window.location.href='/';
+    </script>
+    ";
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin|Dashboard</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
    <!-- Jquery Plugins-->
    <!-- DataTable-->
    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/r-2.3.0/datatables.min.css"/>
- 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.12.1/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/r-2.3.0/datatables.min.js"></script>
- 
+
+  <!-- Popper -->
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
 
   <!-- Adminlte -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
   <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
-
+  
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/7b25d44e85.js" crossorigin="anonymous"></script>
 
@@ -27,4 +46,4 @@
 
 <?php
 include_once 'navbar.php';
-include_once 'aside.php';
+include_once 'sidebar.php';

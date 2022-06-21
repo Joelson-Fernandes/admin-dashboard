@@ -2,6 +2,31 @@
     $session = session();
     $alert = $session->get('alert');
 ?>
+
+<!-- Modal de confirmação deletar usuario -->
+<div class="modal fade" id="modal-confirmacao-delete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="/usuarios/excluir" method="post">
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmar</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Deseja realmente excluir esse usuário ?</p>
+          <input type="hidden" id="id_usuario" name="id_usuario">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Sim</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -40,6 +65,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                         <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <?= $mensagem ?>
                         </div>
                         </div>
@@ -103,4 +129,3 @@
         </div><!-- /.container-fluid -->
     </div><!-- /.content -->
 </div> <!-- /.content-wrapper -->
-

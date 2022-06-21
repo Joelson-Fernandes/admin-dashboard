@@ -46,6 +46,7 @@ $routes->get('/usuarios', 'Usuario');
 $routes->get('/usuarios/novo', 'Usuario::cadastrar');
 $routes->post('/usuarios/store', 'Usuario::store');
 $routes->get('/usuarios/editar/(:any)', 'Usuario::editar/$1');
+$routes->post('/usuarios/excluir', 'Usuario::excluir');
 
 /*
  * --------------------------------------------------------------------

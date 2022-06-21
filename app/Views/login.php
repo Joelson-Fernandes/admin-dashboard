@@ -17,7 +17,7 @@
 
 <body class="login-page" style="min-height: 466px;">
     
-<div class="login-box w-25">
+<div class="login-box">
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
             <a href="#" class="h1"><b>Admin</b>Dashboard</a>

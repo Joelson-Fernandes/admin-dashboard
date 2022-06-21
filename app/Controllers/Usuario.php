@@ -4,9 +4,17 @@ namespace App\Controllers;
 
 class Usuario extends BaseController {
     private $usuario;
+    public $session;
 
     public function __construct() {
         $this->usuario = model('App\Models\Usuario');
+        $this->session = session();
+        $access = $this->session->get('privilegio');
+
+        if ($access == 'usuario') {
+            $this->session->destroy();
+            return redirect()->to('/');
+        }
     }
 
     public function index() {
@@ -26,19 +34,19 @@ class Usuario extends BaseController {
     public function store() {
         $dados = $this->request->getVar();
 
-        $session = session();
-
-        //Atualiza dados
-        if(isset($dados['id_usuario'])) {
-
+        if(isset($dados['id_usuario'])) {  //Atualiza dados
+            $dados['senha'] = md5($dados['senha']);
+            
             $this->usuario->where('id_usuario', $dados['id_usuario'])->set($dados)->update();
-            $session->setFlashdata('alert', 'success_update');
+            $this->session->setFlashdata('alert', 'success_update');
             return redirect()->to("/usuarios");
 
         } else {  //insere novo usuario
+            $dados['senha'] = md5($dados['senha']);
 
             $this->usuario->insert($dados);
-            $session->setFlashdata('alert', 'success_create');
+            $this->session->setFlashdata('alert', 'success_create');
+
             return redirect()->to('/usuarios');
         }
 
@@ -50,6 +58,13 @@ class Usuario extends BaseController {
         echo view('templates/header');
         echo view('usuarios/form', $data);
         echo view('templates/footer');
+    }
+
+    public function excluir() {
+        $this->usuario->where('id_usuario', $_POST['id_usuario'])->delete();
+        $this->session->setFlashdata('alert', 'success_delete');
+
+        return redirect()->to('/usuarios');
     }
 
 }

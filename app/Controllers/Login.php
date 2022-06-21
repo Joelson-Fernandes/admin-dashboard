@@ -3,35 +3,31 @@
 namespace App\Controllers;
 
 class Login extends BaseController {
-    
     private $usuario;
+    public $session;
 
     function __construct() {
         $this->usuario = model('App\Models\Usuario');
-    }
-
-    public function index() {
-
+        $this->session = session();
     }
 
     public function autenticar() {
         $dados = $this->request->getVar();
-        $session = session();
 
         $usuario = $this->usuario->where('username', $dados['username'])
-                                 ->where('senha', $dados['senha'])->first();
+                                 ->where('senha', md5($dados['senha']))->first();
 
        if (!empty($usuario)) {
 
-        $session->set('usuario', $usuario['nome']);
-        $session->set('id_usuario', $usuario['id_usuario']);
-        $session->setFlashdata('alert', 'success_login');
+        $this->session->set('usuario', $usuario['nome']);
+        $this->session->set('id_usuario', $usuario['id_usuario']);
+        $this->session->set('privilegio', $usuario['privilege']);
 
         return redirect()->to('/inicio');
         
        } else {
 
-        $session->setFlashdata('alert', 'error_login');
+        $this->session->setFlashdata('alert', 'error_login');
         return redirect()->to('');
 
        }
@@ -39,17 +35,8 @@ class Login extends BaseController {
     }
 
     public function logout() {
-        $session = session();
-        $session->destroy();
+        $this->session->destroy();
         return redirect()->to('/');
     }
-
-/*
-    public function trocarSenha() {
-        echo view('templates/header');
-        echo view('login/trocar_senha');
-        echo view('templates/footer');
-    }*/
-
 
 }
