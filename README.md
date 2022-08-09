@@ -1,6 +1,7 @@
 <h1 align="center">Admin Dashboard 👨🏻‍💻</h1>
 
 > Um dashboard é um tipo de interface gráfica do usuário que geralmente fornece visualizações rápidas dos principais indicadores de desempenho relevantes para um objetivo ou processo de negócios específico.
+Este projeto utiliza como base para sua construção o Framework <a href="https://www.codeigniter.com/user_guide/intro/index.html">Codeigniter</a> e, templates de <a href="https://adminlte.io/">AdmiLte</a>.
 
 <div align="center">
  <h3 align="center">Tecnologias utilizadas:</h3>
